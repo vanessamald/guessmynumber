@@ -4,8 +4,13 @@ import PrimaryButton from "../components/PrimaryButton";
 function StartGameScreen() {
     return (
         <View style={styles.inputContainer}>
-            {/* maxLength sets the number or chars allowed in TextInput */}
-            <TextInput style={styles.numberInput} maxLength={2}/>
+            <TextInput 
+                style={styles.numberInput} 
+                // sets the number of chars allowed
+                maxLength={2} 
+                // sets the keyboard that will open 
+                keyboardType='number-pad'
+            />
             <PrimaryButton>Reset</PrimaryButton>
             <PrimaryButton>Confirm</PrimaryButton>
         </View>
@@ -19,7 +24,7 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginHorizontal: 24,
         padding: 16,
-        backgroundColor: '#72063c',
+        backgroundColor: '#4e0329',
         borderRadius: 8,
         // only works for Android, comparable to boxShadow in CSS
         elevation: 4,
