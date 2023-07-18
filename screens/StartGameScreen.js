@@ -11,8 +11,15 @@ function StartGameScreen() {
                 // sets the keyboard that will open 
                 keyboardType='number-pad'
             />
-            <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton>Confirm</PrimaryButton>
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Reset</PrimaryButton>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Confirm</PrimaryButton>
+                </View>
+                
+            </View>
         </View>
     )
 }
@@ -21,10 +28,12 @@ export default StartGameScreen;
 
 const styles = StyleSheet.create({
     inputContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 100,
         marginHorizontal: 24,
-        padding: 16,
-        backgroundColor: '#4e0329',
+        padding: 24,
+        backgroundColor: '#B207B6',
         borderRadius: 8,
         // only works for Android, comparable to boxShadow in CSS
         elevation: 4,
@@ -38,11 +47,17 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         fontSize: 32,
-        borderBottomColor: '#ddb52f',
+        borderBottomColor: 'pink',
         borderBottomWidth: 2,
-        color: '#ddb52f',
+        color: 'pink',
         marginVertical: 8,
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+    },
+    buttonContainer: {
+        flex: 1
     }
 })
