@@ -5,6 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 
+import Colors from './constants/colors';
+
 export default function App() {
   const [ userNumber, setUserNumber ] = useState();
 
@@ -19,7 +21,7 @@ export default function App() {
   }
 
   return (
-    <LinearGradient colors={['#fff2fc', '#f74bfb']} style={styles.rootScreen}>
+    <LinearGradient colors={[Colors.accent500, Colors.accent600]} style={styles.rootScreen}>
       <ImageBackground 
         source={require('./assets/images/guessthenumberlogo.png')}
         resizeMode='contain'
@@ -29,7 +31,6 @@ export default function App() {
         <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
-    
   );
 }
 
