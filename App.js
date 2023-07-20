@@ -35,7 +35,7 @@ export default function App() {
   return (
     <LinearGradient colors={[Colors.accent500, Colors.accent600]} style={styles.rootScreen}>
       <ImageBackground 
-        source={require('./assets/images/guessthenumberlogo.png')}
+        source={require('./assets/images/guessmynumber.png')}
         resizeMode='contain'
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
