@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
 
 import Title from '../components/ui/Title';
@@ -20,11 +20,18 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary= 100;
 
-function GameScreen({ userNumber }) {
+function GameScreen({ userNumber, onGameOver }) {
     // initial guess between 1 and 100 and exclude the user's guess
-    const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);
+    const initialGuess = generateRandomBetween(1, 100, userNumber);
     const [ currentGuess, setCurrentGuess ] = useState(initialGuess);
     
+    // check if game is over
+    useEffect(() => {
+        if (currentGuess === userNumber) {
+            onGameOver();
+        }
+    }, [currentGuess, userNumber, onGameOver]);
+
     // function to generate new random number that is lower or greater 
     function nextGuessHandler(direction) {
         // if the direction chosen is 'lower' and if the currentGuess is  actually lower than the userNumber
@@ -46,6 +53,7 @@ function GameScreen({ userNumber }) {
         // generate new random number 
         const newRndNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
         setCurrentGuess(newRndNumber);
+        console.log(newRndNumber);
     }
 
     return ( 
